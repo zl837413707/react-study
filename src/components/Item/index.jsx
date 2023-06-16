@@ -34,7 +34,7 @@ export default class index extends Component {
     return (
       <li style={{background:mouse ? '#ddd' : '#fff'}} onMouseEnter={this.mouseHandle(true)} onMouseLeave={this.mouseHandle(false)}>
         <label>
-          <input type="checkbox" defaultChecked={done} onChange={this.changeTodo(id)}/>
+          <input type="checkbox" checked={done} onChange={this.changeTodo(id)}/>
           <span>{name}</span>
         </label>
         <button onClick={()=>{this.deleteTodo(id)}} className="btn btn-danger" style={{display:mouse ? 'block' : 'none'}}>删除</button>
