@@ -1,47 +1,29 @@
 import React, { Component } from "react";
-import store from "../../redux/store";
-import {
-  createIncrementAction,
-  createDecrementAction,
-} from "../../redux/count_action";
 
 export default class Count extends Component {
   //加法
   increment = () => {
     const { value } = this.selectNumber;
-    store.dispatch(createIncrementAction(value * 1));
+    this.props.jia(value * 1);
   };
   //减法
   decrement = () => {
-    const { value } = this.selectNumber;
-    store.dispatch(createDecrementAction(value * 1));
+    // const { value } = this.selectNumber;
   };
   //奇数再加
   incrementIfOdd = () => {
-    const { value } = this.selectNumber;
-    const count = store.getState();
-    if (count % 2 !== 0) {
-      store.dispatch(createIncrementAction(value * 1));
-    }
+    // const { value } = this.selectNumber;
   };
   //异步加
   incrementAsync = () => {
-    const { value } = this.selectNumber;
-    setTimeout(() => {
-      store.dispatch(createIncrementAction(value * 1));
-    }, 500);
+    // const { value } = this.selectNumber;
   };
 
-  componentDidMount() {
-    store.subscribe(() => {
-      this.setState({});
-    });
-  }
-
   render() {
+    // console.log(this.props);
     return (
       <div>
-        <h1>当前求和为：{store.getState()}</h1>
+        <h1>当前求和为：{this.props.Count}</h1>
         <select ref={(c) => (this.selectNumber = c)}>
           <option value="1">1</option>
           <option value="2">2</option>
