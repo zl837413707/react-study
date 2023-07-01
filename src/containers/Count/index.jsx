@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { createIncrementAction } from "../../redux/count_action";
+import { createIncrementAction } from "../../redux/actions/count";
 
 import { connect } from "react-redux";
 
@@ -55,6 +55,6 @@ class Count extends Component {
 //   };
 // }
 
-export default connect((state) => ({ Count: state }), {
+export default connect((state) => ({ Count: state.add }), {
   jia: createIncrementAction,
 })(Count);

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
-export default class Count extends Component {
+import { createIncrementAction } from "../../redux/actions/count";
+
+import { connect } from "react-redux";
+
+class Count extends Component {
   //加法
   increment = () => {
     const { value } = this.selectNumber;
@@ -38,3 +42,19 @@ export default class Count extends Component {
     );
   }
 }
+
+// function mapStateToProps(state) {
+//   return { Count: state };
+// }
+
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     jia: (number) => {
+//       dispatch(createIncrementAction(number));
+//     },
+//   };
+// }
+
+export default connect((state) => ({ Count: state.add }), {
+  jia: createIncrementAction,
+})(Count);
